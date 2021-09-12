@@ -8,7 +8,7 @@ class MyStack extends TerraformStack {
     new GoogleProvider(this, 'Google', {
       region: 'us-central1',
       zone: 'us-central1-c',
-      project: process.env.GCP_PROJECT_NAME,
+      project: process.env.GCP_PROJECT_ID,
     });
     const storageBucket = new StorageBucket(this, 'ArtifactBucket', {
       name: 'cloud-function-build-artifacts'
@@ -21,7 +21,8 @@ class MyStack extends TerraformStack {
     new CloudfunctionsFunction(this, 'Function', {
       name: 'CloudFunction',
       description: 'My first GCP Cloud Function',
-      runtime: 'nodejs14',
+      entryPoint: 'helloHttp',
+      runtime: 'nodejs16',
       sourceArchiveBucket: storageBucket.name,
       sourceArchiveObject: buildArtifactStorageObject.name,
       triggerHttp: true
