@@ -1,13 +1,13 @@
-const escapeHtml = require('escape-html');
+import { sayHello } from './service/hello.js';
 
 /**
  * HTTP Cloud Function.
  *
- * @param {Object} req Cloud Function request context.
+ * @param {Object} request Cloud Function request context.
  *                     More info: https://expressjs.com/en/api.html#req
- * @param {Object} res Cloud Function response context.
+ * @param {Object} response Cloud Function response context.
  *                     More info: https://expressjs.com/en/api.html#res
  */
-exports.helloHttp = (req, res) => {
-  res.send(`Hello ${escapeHtml(req.query.name || req.body.name || 'World')}!`);
+exports.helloHttp = (request, response) => {
+  response.send(sayHello(request.query.name, request.body.name));
 };

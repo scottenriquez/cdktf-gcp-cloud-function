@@ -1,0 +1,14 @@
+name: gcp-cloud-function-unit-test
+on: [push]
+jobs:
+  run-unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      - run: cd function-code
+      - run: npm install
+      - run: npm test
+      - run: npm run lint

@@ -1,15 +1,41 @@
 {
+  "type": "module",
   "name": "function-code",
   "version": "1.0.0",
   "description": "GCP sample Cloud Functions code",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "zip -r CloudFunctions.zip ."
+    "test": "nyc --reporter=text mocha",
+    "build": "zip -r CloudFunctions.zip .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "author": "",
   "license": "MIT",
   "dependencies": {
     "escape-html": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.15.4",
+    "@babel/preset-react": "^7.14.5",
+    "@types/node": "^16.9.1",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^14.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-wesbos": "^2.0.0",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "mocha": "^9.1.1",
+    "nyc": "^15.1.0",
+    "prettier": "^2.4.0",
+    "typescript": "^4.4.3"
   }
 }
