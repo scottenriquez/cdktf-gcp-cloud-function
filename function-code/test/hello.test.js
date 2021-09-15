@@ -1,10 +1,6 @@
-import { createRequire } from 'module';
-
-import { sayHello } from '../service/hello.js';
-
-const require = createRequire(import.meta.url);
 const mocha = require('mocha');
 const chai = require('chai');
+const helloService = require('../service/hello.js');
 
 const { expect } = chai;
 const { describe } = mocha;
@@ -19,7 +15,10 @@ describe('Hello service', () => {
       const expectedOutput = 'Hello, query!';
 
       // act
-      const actualOutput = sayHello(requestQueryName, requestBodyName);
+      const actualOutput = helloService.sayHello(
+        requestQueryName,
+        requestBodyName
+      );
 
       // assert
       expect(actualOutput).to.deep.equal(expectedOutput);
@@ -31,7 +30,10 @@ describe('Hello service', () => {
       const expectedOutput = 'Hello, body!';
 
       // act
-      const actualOutput = sayHello(requestQueryName, requestBodyName);
+      const actualOutput = helloService.sayHello(
+        requestQueryName,
+        requestBodyName
+      );
 
       // assert
       expect(actualOutput).to.deep.equal(expectedOutput);
@@ -43,7 +45,10 @@ describe('Hello service', () => {
       const expectedOutput = 'Hello, world!';
 
       // act
-      const actualOutput = sayHello(requestQueryName, requestBodyName);
+      const actualOutput = helloService.sayHello(
+        requestQueryName,
+        requestBodyName
+      );
 
       // assert
       expect(actualOutput).to.deep.equal(expectedOutput);

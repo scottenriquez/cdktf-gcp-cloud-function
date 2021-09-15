@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "function-code",
   "version": "1.0.0",
   "description": "GCP sample Cloud Functions code",

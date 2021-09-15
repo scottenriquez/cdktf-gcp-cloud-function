@@ -1,4 +1,4 @@
-import { sayHello } from './service/hello.js';
+const helloService = require('./service/hello.js');
 
 /**
  * HTTP Cloud Function.
@@ -9,5 +9,5 @@ import { sayHello } from './service/hello.js';
  *                     More info: https://expressjs.com/en/api.html#res
  */
 exports.helloHttp = (request, response) => {
-  response.send(sayHello(request.query.name, request.body.name));
+  response.send(helloService.sayHello(request.query.name, request.body.name));
 };
